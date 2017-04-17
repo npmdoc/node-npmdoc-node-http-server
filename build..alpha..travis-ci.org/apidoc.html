@@ -1,0 +1,947 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/RIAEvangelist/node-http-server"
+
+    >node-http-server (v6.2.1)</a>
+</h1>
+<h4>A very simple and fast http server for node, bash, and spawnable from C, Python etc. It is lightweight and great for embedded solutions as well as everyday development or public facing apps.</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server">module node-http-server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.Config">
+            function <span class="apidocSignatureSpan">node-http-server.</span>Config
+            <span class="apidocSignatureSpan">(userConfig)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.Server">
+            function <span class="apidocSignatureSpan">node-http-server.</span>Server
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.afterServe">
+            function <span class="apidocSignatureSpan">node-http-server.</span>afterServe
+            <span class="apidocSignatureSpan">(request)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.beforeServe">
+            function <span class="apidocSignatureSpan">node-http-server.</span>beforeServe
+            <span class="apidocSignatureSpan">(request, response, body, encoding, serve)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.deploy">
+            function <span class="apidocSignatureSpan">node-http-server.</span>deploy
+            <span class="apidocSignatureSpan">(userConfig, readyCallback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.onRawRequest">
+            function <span class="apidocSignatureSpan">node-http-server.</span>onRawRequest
+            <span class="apidocSignatureSpan">(request, response, serve)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.onRequest">
+            function <span class="apidocSignatureSpan">node-http-server.</span>onRequest
+            <span class="apidocSignatureSpan">(request, response, serve)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.Config">module node-http-server.Config</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.Config.Config">
+            function <span class="apidocSignatureSpan">node-http-server.</span>Config
+            <span class="apidocSignatureSpan">(userConfig)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.Server">module node-http-server.Server</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.Server.Server">
+            function <span class="apidocSignatureSpan">node-http-server.</span>Server
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.afterServe">module node-http-server.afterServe</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.afterServe.afterServe">
+            function <span class="apidocSignatureSpan">node-http-server.</span>afterServe
+            <span class="apidocSignatureSpan">(request)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.beforeServe">module node-http-server.beforeServe</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.beforeServe.beforeServe">
+            function <span class="apidocSignatureSpan">node-http-server.</span>beforeServe
+            <span class="apidocSignatureSpan">(request, response, body, encoding, serve)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.deploy">module node-http-server.deploy</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.deploy.deploy">
+            function <span class="apidocSignatureSpan">node-http-server.</span>deploy
+            <span class="apidocSignatureSpan">(userConfig, readyCallback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.onRawRequest">module node-http-server.onRawRequest</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.onRawRequest.onRawRequest">
+            function <span class="apidocSignatureSpan">node-http-server.</span>onRawRequest
+            <span class="apidocSignatureSpan">(request, response, serve)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.node-http-server.onRequest">module node-http-server.onRequest</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.node-http-server.onRequest.onRequest">
+            function <span class="apidocSignatureSpan">node-http-server.</span>onRequest
+            <span class="apidocSignatureSpan">(request, response, serve)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server" id="apidoc.module.node-http-server">module node-http-server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.Config" id="apidoc.element.node-http-server.Config">
+        function <span class="apidocSignatureSpan">node-http-server.</span>Config
+        <span class="apidocSignatureSpan">(userConfig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Config{
+    constructor(userConfig){
+        //for backwards compatibility
+        const config = {};
+        Object.defineProperties(
+            config,
+            {
+                verbose     : {
+                    value:defaultConfigs.verbose,
+                    enumerable:true,
+                    writable:true
+                },
+                port        : {
+                    value:defaultConfigs.port,
+                    enumerable:true,
+                    writable:true
+                },
+                root        : {
+                    value:defaultConfigs.root,
+                    enumerable:true,
+                    writable:true
+                },
+                domain      : {
+                    value:defaultConfigs.domain,
+                    enumerable:true,
+                    writable:true
+                },
+                https       : {
+                    value:defaultConfigs.https,
+                    enumerable:true,
+                    writable:true
+                },
+                log         : {
+                    value:defaultConfigs.log,
+                    enumerable:true,
+                    writable:true
+                },
+                //pass this as config for custom logging
+                logFunction : {
+                    value:defaultConfigs.logFunction,
+                    enumerable:true,
+                    writable:true
+                },
+                domains     : {
+                    value:defaultConfigs.domains,
+                    enumerable:true,
+                    writable:true
+                },
+                server      : {
+                    value:defaultConfigs.server,
+                    enumerable:true,
+                    writable:true
+                },
+                contentType : {
+                    value:defaultConfigs.contentType,
+                    enumerable:true,
+                    writable:true
+                },
+                restrictedType: {
+                    value:defaultConfigs.restrictedType,
+                    enumerable:true,
+                    writable:true
+                },
+                errors      : {
+                    value:defaultConfigs.errors,
+                    enumerable:true,
+                    writable:true
+                }
+            }
+        );
+
+        if(userConfig){
+            for(const k in userConfig){
+                config[k]=userConfig[k];
+            }
+        }
+
+        //this is to allow backwards compatibility with configTemplate
+        return config;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.Server" id="apidoc.element.node-http-server.Server">
+        function <span class="apidocSignatureSpan">node-http-server.</span>Server
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Server{
+    constructor(){
+        Object.defineProperties(
+            this,
+            {
+                deploy:{
+                    value:deploy,
+                    writable:false,
+                    enumerable:true
+                },
+                serveFile:{
+                    value:serveFile,
+                    writable:false,
+                    enumerable:false
+                },
+                //executed before any processing of request. If returns true response serving will be delayed.
+                onRawRequest:{
+                    value:function(request,response,serve){},
+                    writable:true,
+                    enumerable:true
+                },
+                //executed just after request recieved allowing user to modify if needed. If returns true response serving will
+be delayed.
+                onRequest:{
+                    value:function(request,response,serve){},
+                    writable:true,
+                    enumerable:true
+                },
+                //executed just before response sent allowing user to modify if needed. If returns true response serving will be
+ delayed.
+                beforeServe:{
+                    value:function beforeServe(request,response,body,encoding,serve){},
+                    writable:true,
+                    enumerable:true
+                },
+                //executed after each full response completely sent
+                afterServe:{
+                    value:function afterServe(request){},
+                    writable:true,
+                    enumerable:true
+                },
+                serve:{
+                    value:serve,
+                    writable:false,
+                    enumerable:false
+                },
+                //kept for backwards compatibility
+                configTemplate  :{
+                    value:function configTemplate(config){
+                        return new Config(config);
+                    },
+                    writable:false,
+                    //not visible because this is just for backwards compatibility
+                    enumerable:false
+                },
+                Config:{
+                    value:Config,
+                    writable:false,
+                    enumerable:true
+                },
+                Server:{
+                    value:Server,
+                    writable:false,
+                    enumerable:true
+                }
+            }
+        );
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.afterServe" id="apidoc.element.node-http-server.afterServe">
+        function <span class="apidocSignatureSpan">node-http-server.</span>afterServe
+        <span class="apidocSignatureSpan">(request)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function afterServe(request){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.beforeServe" id="apidoc.element.node-http-server.beforeServe">
+        function <span class="apidocSignatureSpan">node-http-server.</span>beforeServe
+        <span class="apidocSignatureSpan">(request, response, body, encoding, serve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function beforeServe(request, response, body, encoding, serve){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.deploy" id="apidoc.element.node-http-server.deploy">
+        function <span class="apidocSignatureSpan">node-http-server.</span>deploy
+        <span class="apidocSignatureSpan">(userConfig, readyCallback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deploy(userConfig, readyCallback){
+    Object.defineProperty(
+        this,
+        &#x27;server&#x27;,
+        {
+            value:http.createServer(
+                requestRecieved.bind(this)
+            ),
+            writable:false,
+            enumerable:true
+        }
+    );
+    this.config=new this.Config(userConfig);
+
+    if(this.config.https &#x26;&#x26; this.config.https.privateKey &#x26;&#x26; this.config.https.certificate){
+        if(!this.config.https.port){
+            this.config.https.port=443;
+        }
+        this.config.httpsOptions = {
+            key: fs.readFileSync(this.config.https.privateKey),
+            cert: fs.readFileSync(this.config.https.certificate)
+        };
+
+        if(this.config.https.ca){
+            this.config.httpsOptions.ca=fs.readFileSync(this.config.https.ca);
+        }
+
+        Object.defineProperty(
+            this,
+            &#x27;secureServer&#x27;,
+            {
+                value:https.createServer(
+                    this.config.httpsOptions,
+                    requestRecieved.bind(this)
+                ),
+                writable:false,
+                enumerable:true
+            }
+        );
+    }else{
+        this.config.https={
+            only:false
+        };
+    }
+
+    this.config.logID=`### ${this.config.domain} server`;
+
+    if(this.config.verbose){
+        console.log(
+            `${this.config.logID} configured with ###\n\n`,this.config);
+    }
+
+    this.server.timeout=this.config.server.timeout;
+
+    if(!this.config.https.only){
+        this.server.listen(
+            this.config.port,
+            function() {
+                if(this.config.verbose){
+                    console.log(`${this.config.logID} listening on port ${this.config.port} ###\n\n`);
+                }
+                if (readyCallback){
+                    //passes the current Server class instance for refrence.
+                    //this allows multiple servers to use the same ready callback if desired
+                    readyCallback(this);
+                }
+            }.bind(this)
+        );
+    }
+
+    if(this.config.httpsOptions){
+        this.secureServer.listen(
+            this.config.https.port,
+            function() {
+                if(this.config.verbose){
+                    console.log(`HTTPS: ${this.config.logID} listening on port ${this.config.https.port} ###\n\n`);
+                }
+                if (readyCallback){
+                    //passes the current Server class instance for refrence.
+                    //this allows multiple servers to use the same ready callback if desired
+                    readyCallback(this);
+                }
+            }.bind(this)
+        );
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+# Basic http server example
+
+```javascript
+
+    var server=require(&#x27;node-http-server&#x27;);
+
+    server.<span class="apidocCodeKeywordSpan">deploy</span>(
+        {
+            port:8000,
+            root:&#x27;~/myApp/&#x27;
+        }
+    );
+
+```
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.onRawRequest" id="apidoc.element.node-http-server.onRawRequest">
+        function <span class="apidocSignatureSpan">node-http-server.</span>onRawRequest
+        <span class="apidocSignatureSpan">(request, response, serve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onRawRequest = function (request, response, serve){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.onRequest" id="apidoc.element.node-http-server.onRequest">
+        function <span class="apidocSignatureSpan">node-http-server.</span>onRequest
+        <span class="apidocSignatureSpan">(request, response, serve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onRequest = function (request, response, serve){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.Config" id="apidoc.module.node-http-server.Config">module node-http-server.Config</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.Config.Config" id="apidoc.element.node-http-server.Config.Config">
+        function <span class="apidocSignatureSpan">node-http-server.</span>Config
+        <span class="apidocSignatureSpan">(userConfig)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Config{
+    constructor(userConfig){
+        //for backwards compatibility
+        const config = {};
+        Object.defineProperties(
+            config,
+            {
+                verbose     : {
+                    value:defaultConfigs.verbose,
+                    enumerable:true,
+                    writable:true
+                },
+                port        : {
+                    value:defaultConfigs.port,
+                    enumerable:true,
+                    writable:true
+                },
+                root        : {
+                    value:defaultConfigs.root,
+                    enumerable:true,
+                    writable:true
+                },
+                domain      : {
+                    value:defaultConfigs.domain,
+                    enumerable:true,
+                    writable:true
+                },
+                https       : {
+                    value:defaultConfigs.https,
+                    enumerable:true,
+                    writable:true
+                },
+                log         : {
+                    value:defaultConfigs.log,
+                    enumerable:true,
+                    writable:true
+                },
+                //pass this as config for custom logging
+                logFunction : {
+                    value:defaultConfigs.logFunction,
+                    enumerable:true,
+                    writable:true
+                },
+                domains     : {
+                    value:defaultConfigs.domains,
+                    enumerable:true,
+                    writable:true
+                },
+                server      : {
+                    value:defaultConfigs.server,
+                    enumerable:true,
+                    writable:true
+                },
+                contentType : {
+                    value:defaultConfigs.contentType,
+                    enumerable:true,
+                    writable:true
+                },
+                restrictedType: {
+                    value:defaultConfigs.restrictedType,
+                    enumerable:true,
+                    writable:true
+                },
+                errors      : {
+                    value:defaultConfigs.errors,
+                    enumerable:true,
+                    writable:true
+                }
+            }
+        );
+
+        if(userConfig){
+            for(const k in userConfig){
+                config[k]=userConfig[k];
+            }
+        }
+
+        //this is to allow backwards compatibility with configTemplate
+        return config;
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.Server" id="apidoc.module.node-http-server.Server">module node-http-server.Server</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.Server.Server" id="apidoc.element.node-http-server.Server.Server">
+        function <span class="apidocSignatureSpan">node-http-server.</span>Server
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">class Server{
+    constructor(){
+        Object.defineProperties(
+            this,
+            {
+                deploy:{
+                    value:deploy,
+                    writable:false,
+                    enumerable:true
+                },
+                serveFile:{
+                    value:serveFile,
+                    writable:false,
+                    enumerable:false
+                },
+                //executed before any processing of request. If returns true response serving will be delayed.
+                onRawRequest:{
+                    value:function(request,response,serve){},
+                    writable:true,
+                    enumerable:true
+                },
+                //executed just after request recieved allowing user to modify if needed. If returns true response serving will
+be delayed.
+                onRequest:{
+                    value:function(request,response,serve){},
+                    writable:true,
+                    enumerable:true
+                },
+                //executed just before response sent allowing user to modify if needed. If returns true response serving will be
+ delayed.
+                beforeServe:{
+                    value:function beforeServe(request,response,body,encoding,serve){},
+                    writable:true,
+                    enumerable:true
+                },
+                //executed after each full response completely sent
+                afterServe:{
+                    value:function afterServe(request){},
+                    writable:true,
+                    enumerable:true
+                },
+                serve:{
+                    value:serve,
+                    writable:false,
+                    enumerable:false
+                },
+                //kept for backwards compatibility
+                configTemplate  :{
+                    value:function configTemplate(config){
+                        return new Config(config);
+                    },
+                    writable:false,
+                    //not visible because this is just for backwards compatibility
+                    enumerable:false
+                },
+                Config:{
+                    value:Config,
+                    writable:false,
+                    enumerable:true
+                },
+                Server:{
+                    value:Server,
+                    writable:false,
+                    enumerable:true
+                }
+            }
+        );
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.afterServe" id="apidoc.module.node-http-server.afterServe">module node-http-server.afterServe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.afterServe.afterServe" id="apidoc.element.node-http-server.afterServe.afterServe">
+        function <span class="apidocSignatureSpan">node-http-server.</span>afterServe
+        <span class="apidocSignatureSpan">(request)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function afterServe(request){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.beforeServe" id="apidoc.module.node-http-server.beforeServe">module node-http-server.beforeServe</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.beforeServe.beforeServe" id="apidoc.element.node-http-server.beforeServe.beforeServe">
+        function <span class="apidocSignatureSpan">node-http-server.</span>beforeServe
+        <span class="apidocSignatureSpan">(request, response, body, encoding, serve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function beforeServe(request, response, body, encoding, serve){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.deploy" id="apidoc.module.node-http-server.deploy">module node-http-server.deploy</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.deploy.deploy" id="apidoc.element.node-http-server.deploy.deploy">
+        function <span class="apidocSignatureSpan">node-http-server.</span>deploy
+        <span class="apidocSignatureSpan">(userConfig, readyCallback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function deploy(userConfig, readyCallback){
+    Object.defineProperty(
+        this,
+        &#x27;server&#x27;,
+        {
+            value:http.createServer(
+                requestRecieved.bind(this)
+            ),
+            writable:false,
+            enumerable:true
+        }
+    );
+    this.config=new this.Config(userConfig);
+
+    if(this.config.https &#x26;&#x26; this.config.https.privateKey &#x26;&#x26; this.config.https.certificate){
+        if(!this.config.https.port){
+            this.config.https.port=443;
+        }
+        this.config.httpsOptions = {
+            key: fs.readFileSync(this.config.https.privateKey),
+            cert: fs.readFileSync(this.config.https.certificate)
+        };
+
+        if(this.config.https.ca){
+            this.config.httpsOptions.ca=fs.readFileSync(this.config.https.ca);
+        }
+
+        Object.defineProperty(
+            this,
+            &#x27;secureServer&#x27;,
+            {
+                value:https.createServer(
+                    this.config.httpsOptions,
+                    requestRecieved.bind(this)
+                ),
+                writable:false,
+                enumerable:true
+            }
+        );
+    }else{
+        this.config.https={
+            only:false
+        };
+    }
+
+    this.config.logID=`### ${this.config.domain} server`;
+
+    if(this.config.verbose){
+        console.log(
+            `${this.config.logID} configured with ###\n\n`,this.config);
+    }
+
+    this.server.timeout=this.config.server.timeout;
+
+    if(!this.config.https.only){
+        this.server.listen(
+            this.config.port,
+            function() {
+                if(this.config.verbose){
+                    console.log(`${this.config.logID} listening on port ${this.config.port} ###\n\n`);
+                }
+                if (readyCallback){
+                    //passes the current Server class instance for refrence.
+                    //this allows multiple servers to use the same ready callback if desired
+                    readyCallback(this);
+                }
+            }.bind(this)
+        );
+    }
+
+    if(this.config.httpsOptions){
+        this.secureServer.listen(
+            this.config.https.port,
+            function() {
+                if(this.config.verbose){
+                    console.log(`HTTPS: ${this.config.logID} listening on port ${this.config.https.port} ###\n\n`);
+                }
+                if (readyCallback){
+                    //passes the current Server class instance for refrence.
+                    //this allows multiple servers to use the same ready callback if desired
+                    readyCallback(this);
+                }
+            }.bind(this)
+        );
+    }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+# Basic http server example
+
+```javascript
+
+    var server=require(&#x27;node-http-server&#x27;);
+
+    server.<span class="apidocCodeKeywordSpan">deploy</span>(
+        {
+            port:8000,
+            root:&#x27;~/myApp/&#x27;
+        }
+    );
+
+```
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.onRawRequest" id="apidoc.module.node-http-server.onRawRequest">module node-http-server.onRawRequest</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.onRawRequest.onRawRequest" id="apidoc.element.node-http-server.onRawRequest.onRawRequest">
+        function <span class="apidocSignatureSpan">node-http-server.</span>onRawRequest
+        <span class="apidocSignatureSpan">(request, response, serve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onRawRequest = function (request, response, serve){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.node-http-server.onRequest" id="apidoc.module.node-http-server.onRequest">module node-http-server.onRequest</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.node-http-server.onRequest.onRequest" id="apidoc.element.node-http-server.onRequest.onRequest">
+        function <span class="apidocSignatureSpan">node-http-server.</span>onRequest
+        <span class="apidocSignatureSpan">(request, response, serve)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">onRequest = function (request, response, serve){}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
