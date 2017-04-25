@@ -1,4 +1,7 @@
-# api documentation for  [node-http-server (v6.2.1)](https://github.com/RIAEvangelist/node-http-server)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-http-server.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-http-server) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-http-server.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-http-server)
+# npmdoc-node-http-server
+
+#### basic api documentation for  [node-http-server (v6.2.1)](https://github.com/RIAEvangelist/node-http-server)  [![npm package](https://img.shields.io/npm/v/npmdoc-node-http-server.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-node-http-server) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-node-http-server.svg)](https://travis-ci.org/npmdoc/node-npmdoc-node-http-server)
+
 #### A very simple and fast http server for node, bash, and spawnable from C, Python etc. It is lightweight and great for embedded solutions as well as everyday development or public facing apps.
 
 [![NPM](https://nodei.co/npm/node-http-server.png?downloads=true&downloadRank=true&stars=true)](https://www.npmjs.com/package/node-http-server)
@@ -81,7 +84,8 @@
         "start": "node ./example/basic/basicApp.js",
         "test": "echo \"Error: no test specified\" && exit 1"
     },
-    "version": "6.2.1"
+    "version": "6.2.1",
+    "bin": {}
 }
 ```
 
